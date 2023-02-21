@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ae Buddy</title>
+    <title>AE buddy</title>
 </head>
 <body>
-    <h1>How much ACV did you close?</h1>
-    <form id="ourForm">
-        <input id="ourField" type="text" autocomplete="off">
-        <button>Create item</button>
-    </form>
-    <h3>Need to do</h3>
-    <ul id="ourList">
-       
-    </ul>
+    <label for="inputField">Enter a number:</label>
+    <input type="number" id="inputField">
+    <button onclick="calculate()">Calculate 10%</button>
+    <p id="result"></p>
+    <p>Did the result help you?</p>
+    <input type="radio" id="yes" name="helpful" value="yes">
+    <label for="yes">Yes</label>
+    <input type="radio" id="no" name="helpful" value="no">
+    <label for="no">No</label>
 
-    <script src="server.js"></script>
-
+<script src="server.js"></script>
 </body>
 </html>
+
