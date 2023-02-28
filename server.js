@@ -3,10 +3,10 @@ function calculate() {
     const input = document.getElementById("inputField").value;
     
     // Calculate 10% of the input
-    const result = input * 0.1;
+    const result = input * 0.077;
     
     // Display the result
-    document.getElementById("result").textContent = `10% of ${input} is ${result}.`;
+    document.getElementById("result").textContent = `Your commision is ${input} is ${result}.`;
     
     // Show the helpfulness options
     document.getElementById("helpfulness").style.display = "block";
