@@ -13,6 +13,12 @@ function calculate() {
     
     // Clear the input field
     document.getElementById("inputField").value = "";
+
+      // Check if input is a valid number
+  if (isNaN(inputField.value)) {
+    result.innerText = "Please enter a valid number!";
+    return;
+  }
   }
   
   // Function to handle radio button selection
