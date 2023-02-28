@@ -75,15 +75,16 @@ function calculate() {
   }
   "use strict";
 
+// only allow numbers on iOS devices
   function restrictInput() {
-    var inputField = document.getElementById("inputField");
-    inputField.addEventListener("keypress", function(e) {
-      var keyCode = e.which ? e.which : e.keyCode;
-      if (keyCode < 48 || keyCode > 57) {
-        e.preventDefault();
-      }
-    });
-  }
+  var inputField = document.getElementById("inputField");
+  inputField.addEventListener("keypress", function(e) {
+    var keyCode = e.which ? e.which : e.keyCode;
+    if (keyCode < 48 || keyCode > 57) {
+      e.preventDefault();
+    }
+  });
+}
   
 
  
