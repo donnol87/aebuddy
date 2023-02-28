@@ -30,7 +30,7 @@ function calculate() {
       // Calculate 41% of the initial percentage calculated
       const additionalResult = result * 0.41;
       
-      feedback = `Guess what? The taxman has some deep pockets and will take 41% of your sweet, sweet commish (${result}) is ${additionalResult}.`;
+      feedback = `Guess what? The taxman has some deep pockets and will take 41% of your sweet, sweet commish. The tax you'll pay on your $${result} deal is $${additionalResult.toFixed(0)}.`;
       
       // Show the refresh button
       document.getElementById("refreshButton").style.display = "block";
@@ -61,7 +61,7 @@ function calculate() {
     loadingSpinner.style.display = "block";
     setTimeout(function() {
       var percent = inputField.value * 0.077;
-      result.innerText = "Your commission is on a " + inputField.value + " deal is " + percent.toFixed(2);
+      result.innerText = "Your commission on a " + inputField.value + " deal is " + percent.toFixed(2);
   
       helpfulness.style.display = "block";
       loadingSpinner.style.display = "none";
