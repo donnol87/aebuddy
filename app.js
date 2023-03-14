@@ -24,15 +24,24 @@ function calculateCommission() {
         additionalAmount += 2750;
     }
     
-    // Get the contract term
-    const term = Number(document.getElementById("term").value);
-    additionalAmount += (term - 1) * (salesAmount / 100);
-    
-    // Add the additional amount to the commission
-    commission += additionalAmount;
-    
-    // Set the commission value
-    document.getElementById("commission").value = commission;
+// Get the contract term
+const term = Number(document.getElementById("term").value);
+let multiplier = 1;
+
+if (term === 2 || term === 3) {
+  multiplier = 2.27 / 100;
+} else if (term === 4 || term === 5) {
+  multiplier = 3.405 / 100;
+}
+
+additionalAmount += (term - 1) * (salesAmount * multiplier);
+
+// Add the additional amount to the commission
+commission += additionalAmount;
+
+// Set the commission value
+document.getElementById("commission").value = commission;
+
     
     // Check if the user wants to see the tax amount
     const taxYes = document.getElementById("taxYes");
