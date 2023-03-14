@@ -1,90 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AE buddy</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">AE Buddy</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Payout Tracker</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="calculator.html">Calculator</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+<html>
+<head>
+	<title>Calculate 7.7% of Input</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <div class="container my-4">
-      <div class="row">
-        <div class="col-md-4">
-          <label for="inputField" class="form-label">How much ACV did you close? (Please only enter numbers)</label>
-          <input type="number" id="inputField" name="inputField" min="0" inputmode="numeric" pattern="[0-9]*" title="Non-negative integral number">
-          <button onclick="calculate()" class="btn btn-primary mt-2">Calculate the commish</button>
-          <div class="spinner-border text-primary mt-3" role="status" id="loadingSpinner" style="display:none;">
-            <span class="visually-hidden">Loading...</span>
-          </div>
-          <p id="result" class="mt-3"></p>
-        </div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">AE Buddy</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Payout Tracker</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="calculator.html">Calculator</a>
+          </li>
+        </ul>
       </div>
-      <div class="row" id="helpfulness" style="display:none;">
-        <div class="col-md-4 mt-3">
-          <p>Wanna see how much the tax man is gonna take?</p>
-          <div class="form-check">
-            <input type="radio" id="yes" name="helpful" value="yes" class="form-check-input" />
-            <label for="yes" class="form-check-label">Yes</label>
+    </div>
+  </nav>
+
+	<div class="container">
+    <h2 class="mb-4 pt-5">Commission Calculator</h2>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="salesAmount">How much ACV did you close?</label>
+          <input type="number" class="form-control" id="salesAmount" name="salesAmount">
+        </div>
+        <div class="form-group">
+          <label>Was this a new logo?</label><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="newLogoYes" name="newLogo" value="yes">
+            <label class="form-check-label" for="newLogoYes">Yes</label>
           </div>
-          <div class="form-check">
-            <input type="radio" id="no" name="helpful" value="no" class="form-check-input" />
-            <label for="no" class="form-check-label">No</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="newLogoNo" name="newLogo" value="no">
+            <label class="form-check-label" for="newLogoNo">No</label>
           </div>
-          <p id="feedback" class="mt-3"></p>
-          <button id="refreshButton" style="display:none;" onclick="refresh()" class="btn btn-secondary mt-3">Refresh</button>
+        </div>
+        <div class="form-group">
+          <label for="term">What is the contract term?</label>
+          <select class="form-control" id="term" name="term">
+            <option value="1">1 year</option>
+            <option value="2">2 years</option>
+            <option value="3">3 years</option>
+            <option value="4">4 years</option>
+            <option value="5">5 years</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Do you want to see how much the tax man takes?</label><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="taxYes" name="tax" value="yes">
+            <label class="form-check-label" for="taxYes">Yes</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="taxNo" name="tax" value="no" checked>
+            <label class="form-check-label" for="taxNo">No</label>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="calculateCommission()">Calculate Commission</button>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="commission">Commission:</label>
+          <input type="number" class="form-control" id="commission" name="commission" readonly>
+        </div>
+        <div class="form-group">
+          <label for="taxAmount">Tax Amount:</label>
+          <input type="number" class="form-control" id="taxAmount" name="taxAmount" readonly>
+        </div>
+        <div id="taxMessage" style="display: none;">Tax calculations are an estimate in the range of 35-46% depending on where you're at on your compensation plan</div>
+        <button type="button" class="btn btn-primary" id="clearButton">Clear Calculation</button>
+      </form>
+  
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-4 offset-8">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title" style="color: #5f6368; font-family: 'Google Sans', Arial, sans-serif;">Salesforce Stock Price</h5>
+            <p class="card-text" id="stock-value" style="color: #202124; font-family: 'Google Sans', Arial, sans-serif;"></p>
+            <canvas id="stock-chart"></canvas>
+          </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <footer class="bg-light text-center py-3" style="position: fixed; bottom: 0; width: 100%;">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <a href="index.html">Payout Tracker</a>
-          </div>
-          <div class="col-md-4">
-            <a class="navbar-brand" href="index.html">AE Buddy</a>
-          </div>
-          <div class="col-md-4">
-            <a href="calculator.html">Calculator</a>
-          </div>
+ <!-- <footer class="bg-light text-center py-3" style="position: fixed; bottom: 0; width: 100%;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <a href="index.html">Payout Tracker</a>
+        </div>
+        <div class="col-md-4">
+          <a class="navbar-brand" href="index.html">AE Buddy</a>
+        </div>
+        <div class="col-md-4">
+          <a href="calculator.html">Calculator</a>
         </div>
       </div>
-    </footer>
-    
-      
+    </div>
+  </footer>--> 
 
-    
-<script src="server.js"></script>
+  <div class="container fixed-bottom">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <ul class="nav col-md-4">
+        <li class="nav-item"><a href="index.html" class="nav-link px-2 text-muted">Payout Tracker</a></li>
+        <li class="nav-item"><a href="calculator.html" class="nav-link px-2 text-muted">Calculator</a></li>
+      </ul>
+  
+      <p class="col-md-4 mb-0 text-muted">© 2023 AEBuddy, Inc</p>
+  
+      <ul class="nav col-md-4 justify-content-end">
+        <li class="nav-item"><a href="https://www.linkedin.com/in/donn-o%C2%B4lochlainn-004a9940/" class="nav-link px-2 text-muted"><i class="fab fa-linkedin"></i>LinkedIn</a></li>
+      </ul>
+    </footer>
+  </div>
+  
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="app.js">
+
+</script>
+
 </html>
 
