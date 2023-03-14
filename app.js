@@ -43,18 +43,17 @@ commission += additionalAmount;
 document.getElementById("commission").value = commission;
 
     
-    // Check if the user wants to see the tax amount
-    const taxYes = document.getElementById("taxYes");
-    const isTaxEnabled = taxYes.checked;
-    if (isTaxEnabled) {
-        // Calculate the tax amount
-        const taxAmount = commission * (Math.floor(Math.random() * (46 - 35 + 1)) + 35) / 100;
-        document.getElementById("taxAmount").value = taxAmount;
-        document.getElementById("taxMessage").style.display = "block";
-    } else {
-        document.getElementById("taxAmount").value = "";
-        document.getElementById("taxMessage").style.display = "none";
-    }
+// Check if the user wants to see the tax amount
+const taxYes = document.getElementById("taxYes");
+const isTaxEnabled = taxYes.checked;
+if (isTaxEnabled) {
+    // Calculate the tax amount
+    const taxAmount = commission * 0.4;
+    document.getElementById("taxAmount").value = taxAmount;
+    document.getElementById("taxMessage").style.display = "block";
+} else {
+    document.getElementById("taxAmount").value = taxAmount.toFixed(2);
+    document.getElementById("taxMessage").style.display = "none";}
   }
   
   // Replace YOUR_API_KEY with your actual API key
