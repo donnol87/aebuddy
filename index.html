@@ -81,7 +81,6 @@
         <button type="button" class="btn btn-primary" onclick="calculateCommission()">Calculate Commission</button>
       </div>
       <div class="container">
-        <div class="col-md-6">
           <div class="form-group">
             <label for="commission">Commission:</label>
             <input type="number" class="form-control" id="commission" name="commission" readonly>
@@ -89,7 +88,6 @@
           <div class="form-group">
             <label for="taxAmount">Tax Amount:</label>
             <input type="number" class="form-control" id="taxAmount" name="taxAmount" readonly="" step="0.01">
-          </div>
           <div id="taxMessage" style="display: none;">Please note that we are taking an average of 40% tax as normal tax rates range between 35 and 46% when you include PRSI, PAYE & USC.</div>
           <button type="button" class="btn btn-primary mt-2" id="clearButton">Clear Calculation</button>
         </div>
