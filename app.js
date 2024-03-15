@@ -5,7 +5,7 @@ function calculateCommission() {
       // Calculate the commission based on sales amount
     let commission;
     if (salesAmount < 16536) {
-        commission = salesAmount * 0.048;
+        commission = salesAmount * 0.078;
     } else if (salesAmount >= 16536 && salesAmount < 24804) {
         commission = salesAmount * 0.0646;
     } else if (salesAmount >= 24804 && salesAmount < 33027) {
@@ -77,7 +77,7 @@ if (isTaxEnabled) {
         })
         .slice(0, 30);
   
-      // Create a chart using Chart.js
+    //   // Create a chart using Chart.js
       const ctx = document.getElementById('stock-chart').getContext('2d');
       new Chart(ctx, {
         type: 'bar',
@@ -129,4 +129,40 @@ document.getElementById("commission").value = "";
 document.getElementById("taxAmount").value = "";
 document.getElementById("taxMessage").style.display = "none";
 document.getElementById("salesAmount").value = "";
+});
+
+// jQuery UI autocomplete for competitor names
+
+$( function() {
+  var availableTags = [
+    "Green Light Guru",
+    "Competitor Name",
+    "Price Value"
+  ];
+  $( "#inputField" ).autocomplete({
+    source: availableTags
+  });
+} );
+
+$( function() {
+var availableTags = [
+  "Green Light Guru",
+  "Dot Compliance",
+  "Master Control"
+];
+$( "#inputField" ).autocomplete({
+  source: availableTags,
+  select: function(event, ui) {
+      if(ui.item.value === "Green Light Guru") {
+          // Display text on the screen
+          $("#display").text("You selected Green Light Guru!");
+      } if(ui.item.value === "Master Control") {
+          // Display text on the screen
+          $("#display").text("You selected Master Control!");
+      } if(ui.item.value === "Dot Compliance") {
+          // Display text on the screen
+          $("#display").text("You selected Dot Compliance!");
+      }
+  }
+});
 });

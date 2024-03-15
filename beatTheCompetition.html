@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beat The Competition</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G34FDN75J3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-G34FDN75J3');
+    </script>
+    <script src="app.js"></script>
+
+<!-- JQuery Library -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">AE Buddy</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Payout Tracker</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="calculator.html">Calculator</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="caseStudies.html">Case Studies</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="beatTheCompetition.html">Beat The Competition</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <div class="form-group mx-auto p-5 w-50 jumbotron shadow-sm">
+      <label class="pb-2" for="salesAmount">Who are you competing against?</label>
+      <div class="input-group">
+          <input id="inputField" class="form-control mr-3 m-1" onclick="this.value=''; document.getElementById('display').innerHTML = '';">
+          <!-- <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" onclick="document.getElementById('display').innerHTML = 'You selected ' + document.getElementById('inputField').value + '!';">Submit</button>
+          </div> -->
+      </div>
+      <div id="display" class="pt-2"></div>
+  </div>
+    </body>
+    </html>
