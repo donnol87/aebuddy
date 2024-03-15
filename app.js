@@ -131,8 +131,6 @@ document.getElementById("taxMessage").style.display = "none";
 document.getElementById("salesAmount").value = "";
 });
 
-// jQuery UI autocomplete for competitor names
-
 $( function() {
   var availableTags = [
     "Green Light Guru",

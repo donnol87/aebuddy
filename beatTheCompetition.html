@@ -62,5 +62,42 @@
       </div>
       <div id="display" class="pt-2"></div>
   </div>
+
+  <script>
+    $( function() {
+      var availableTags = [
+        "Green Light Guru",
+        "Competitor Name",
+        "Price Value"
+      ];
+      $( "#inputField" ).autocomplete({
+        source: availableTags
+      });
+  } );
+
+  $( function() {
+  var availableTags = [
+      "Green Light Guru",
+      "Dot Compliance",
+      "Master Control"
+  ];
+  $( "#inputField" ).autocomplete({
+      source: availableTags,
+      select: function(event, ui) {
+          if(ui.item.value === "Green Light Guru") {
+              // Display text on the screen
+              $("#display").text("You selected Green Light Guru!");
+          } if(ui.item.value === "Master Control") {
+              // Display text on the screen
+              $("#display").text("You selected Master Control!");
+          } if(ui.item.value === "Dot Compliance") {
+              // Display text on the screen
+              $("#display").text("You selected Dot Compliance!");
+          }
+      }
+  });
+});
+
+</script>
     </body>
     </html>
