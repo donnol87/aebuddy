@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>AE Buddy</title>
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>AE Buddy</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,7 +13,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G34FDN75J3"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() { dataLayer.push(arguments); }
   gtag('js', new Date());
 
   gtag('config', 'G-G34FDN75J3');
@@ -23,15 +24,8 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
       <a class="navbar-brand" href="index.html">AE Buddy</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -54,7 +48,7 @@
   </nav>
 
 
-	<div class="container">
+  <div class="container">
     <h2 class="mb-4 pt-5">Commission Calculator</h2>
     <div class="row">
       <div class="col-md-6">
@@ -72,9 +66,9 @@
             <input class="form-check-input" type="radio" id="newLogoNo" name="newLogo" value="no">
             <label class="form-check-label" for="newLogoNo">No</label>
           </div>
-        </div> 
+        </div>
 
-         <div class="form-group hidden">
+        <div class="form-group hidden">
           <label for="term">What is the contract term?</label>
           <select class="form-control" id="term" name="term">
             <option value="1">1 year</option>
@@ -83,7 +77,7 @@
             <option value="4">4 years</option>
             <option value="5">5 years</option>
           </select>
-        </div> 
+        </div>
         <div class="form-group">
           <label>Do you want to see how much the tax man takes?</label><br>
           <div class="form-check form-check-inline">
@@ -98,39 +92,40 @@
         <button type="button" class="btn btn-primary" onclick="calculateCommission()">Calculate Commission</button>
       </div>
       <div class="container">
-          <div class="form-group">
-            <label for="commission">Commission:</label>
-            <input type="number" class="form-control" id="commission" name="commission" readonly>
-          </div>
-          <div class="form-group">
-            <label for="taxAmount">Tax Amount:</label>
-            <input type="number" class="form-control" id="taxAmount" name="taxAmount" readonly="" step="0.01">
-          <div id="taxMessage" style="display: none;">Please note that we are taking an average of 40% tax as normal tax rates range between 35 and 46% when you include PRSI, PAYE & USC.</div>
+        <div class="form-group">
+          <label for="commission">Commission:</label>
+          <input type="number" class="form-control" id="commission" name="commission" readonly>
+        </div>
+        <div class="form-group">
+          <label for="taxAmount">Tax Amount:</label>
+          <input type="number" class="form-control" id="taxAmount" name="taxAmount" readonly="" step="0.01">
+          <div id="taxMessage" style="display: none;">Please note that we are taking an average of 40% tax as normal tax
+            rates range between 35 and 46% when you include PRSI, PAYE & USC.</div>
           <button type="button" class="btn btn-primary mt-2" id="clearButton">Clear Calculation</button>
         </div>
+      </div>
     </div>
-</div>
 
-  
 
-      <footer class="bg-light text-center py-3 fixed-bottom">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-4">
-              <a href="index.html">Payout Tracker</a>
-            </div>
-            <div class="col-md-4">
-              <a class="navbar-brand" href="index.html">AE Buddy</a>
-            </div>
-            <div class="col-md-4">
-              <a href="calculator.html">Calculator</a>
-            </div>
+
+    <footer class="bg-light text-center py-3 fixed-bottom">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4">
+            <a href="index.html">Payout Tracker</a>
+          </div>
+          <div class="col-md-4">
+            <a class="navbar-brand" href="index.html">AE Buddy</a>
+          </div>
+          <div class="col-md-4">
+            <a href="calculator.html">Calculator</a>
           </div>
         </div>
-      </footer>
-      
+      </div>
+    </footer>
 
-  <!--<div class="container fixed-bottom">
+
+    <!--<div class="container fixed-bottom">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
       <ul class="nav col-md-4">
         <li class="nav-item"><a href="index.html" class="nav-link px-2 text-muted">Payout Tracker</a></li>
@@ -144,15 +139,11 @@
       </ul>
     </footer>
   </div>
---> 
-  
-  
+-->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js"></script>
+  </div>
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="app.js">
-
-</script>
-
 </html>
-
