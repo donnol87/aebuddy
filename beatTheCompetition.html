@@ -65,6 +65,15 @@
     <div id="display" class="pt-2"></div>
   </div>
 
+  <div class="form-group mx-auto p-5 w-50 jumbotron shadow-sm">
+    <label class="pb-2" for="salesAmount">What software do you sell?</label>
+    <div class="input-group">
+      <input id="inputField2" class="form-control mr-3 m-1"
+        onclick="this.value=''; document.getElementById('display').innerHTML = '';">
+    </div>
+    <div id="display2" class="pt-2"></div>
+  </div>
+
   <script>
     $(function () {
       var availableTags = [
